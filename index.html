@@ -28,7 +28,7 @@
 
     <!--Booking Section-->
     <main class="main-content container">
-        <div class="booking-form">
+        <div id="ticket-area" class="booking-form">
             <h3>Booking Flights</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
@@ -108,12 +108,14 @@
                 veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
                 voluptatibus quam</p>
         </div>
+        <div id="after-confirm">
+            <img src="images/submit.png" class="img-fluid" alt="Responsive image">
+        </div>
         <script>
             //FIRST CLASS CALCULATION---------------
             function firstClassQuantity(isIncrease) {
                 const inputQuantity = document.getElementById('first-class');
                 const firstCount = parseInt(inputQuantity.value)
-                // const firstNewCount = firstCount - 1;
                 let firstNewCount = firstCount;
                 if (isIncrease == true) {
                     firstNewCount = firstCount + 1;
@@ -142,10 +144,13 @@
                 calculateTotal();
             }
 
-            //BOOK NOW HANDLER-------
+            //BOOK NOW AND SUBMISSION HANDLER-------
             const bookButton = document.getElementById("bookButton");
             bookButton.addEventListener("click", function () {
-                console.log("your ticket is confirm")
+                const ticketArea = document.getElementById("ticket-area");
+                ticketArea.style.display = "none";
+                const confirmArea = document.getElementById("after-confirm");
+                confirmArea.style.display = "block";
             })
 
             //TOTAL CALCULATION:-----------
@@ -163,4 +168,5 @@
             }
         </script>
 </body>
+
 </html>
